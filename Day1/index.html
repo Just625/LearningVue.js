@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div title="a">Click to see a</div>
+<div id="app">
+    {{ message }}
+</div>
+<div id="app-2">
+  <span v-bind:title="message">
+    Rê chuột lên đây một vài giây để xem thuộc tính `title` được bind!
+  </span>
+</div>
+<div id="app-3">
+    <span v-if="seen">Thoat an thoat hien</span>
+</div>
+<div id="app-4">
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+</div>
+<div id="app-5">
+    <p> {{message}} </p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+<div id="app-6">
+    <p>{{message}}</p>
+    <input v-model="message">
+</div>
+<ol>
+    <!-- Tạo một đối tượng của component todo-item -->
+    <todo-item></todo-item>
+</ol>
+<div id="app-7">
+    <p>Things they buy:</p>
+    <ol>
+        <todo-item v-for="item in groceryList" v-bind:todo="item"
+                   v-bind:key="item.id"></todo-item>
+    </ol>
+</div>
+<div id="app-8">
+    <p>{{foo}}</p>
+    <button @click="foo = 'baz'">Update</button>
+</div>
+<div id="app-9" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">Testing</div>
+<div id="app-10" v-bind:style="styleObject">Testing</div>
+<ul id="example-1">
+    <li v-for="(item, index) of items">
+       {{index}}. {{item.name}}-{{parentMessage}}
+    </li>
+</ul>
+<ul id="v-for-object" class="demo">
+<!--    value, key, index ko phai la tu khoa , day la thu tu-->
+    <li v-for="(value,key,index) in objects12">
+    {{value}} - {{key}} - {{index}}
+</ul>
+<div id="ex-2">
+    <button @click="greet">Welcome,myfavorite customer</button>
+</div>
+<div id="ex-3">
+    <input type="checkbox" id="com" value="Cơm" v-model="checkedNames">
+    <label for="com">Cơm</label></br>
+    <input type="checkbox" id="hoa qua" value="Hoa quả" v-model="checkedNames">
+    <label for="hoa qua">Hoa quả</label></br>
+    <input type="checkbox" id="sua chua" value="Sữa chua" v-model="checkedNames">
+    <label for="sua chua">Sữa chua</label></br>
+    <span>Món đã chọn: {{checkedNames}}</span>
+</div>
+
+<div id="ex-4">
+    <input type="radio" id="vegetable" value="vegetable" v-model="picked">
+    <label for="vegetable">Vegetable</label></br>
+    <input type="radio" id="meat" value="meat" v-model="picked">
+    <label for="meat">Meat</label></br>
+    <span>Picked: {{picked}}</span>
+</div>
+<div id="ex-5">
+    <select v-model="selected">
+        <option disabled value="">Vui long chon mon</option>
+        <option>Đọt bí xào tỏi</option>
+        <option>Canh bông</option>
+        <option>Lẩu nấm</option>
+    </select>
+    </br>
+    <span>Món đã chọn: {{selected}}</span>
+</div>
+<div id="ex-6">
+    <select v-model="selected" multiple>
+        <option>Đọt bí</option>
+        <option>Canh bóng</option>
+        <option>Lẩu nấm</option>
+    </select>
+    </br>
+    <span>Những món đã chọn: {{selected}}</span>
+</div>
+<div id="ex-7">
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+            {{ option.text }}
+        </option>
+    </select>
+    <span>Giá tiền: {{ selected }}</span>
+</div>
+<div id="component-demo">
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+</div>
+<div id="blog-post-demo">
+   <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
+</div>
+<!--<div id="blog-post-events-demo">-->
+<!--    <div v-bind:style="{fontSize: postFontSize + 'px'}">-->
+<!--        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="test.js"></script>
+</html>

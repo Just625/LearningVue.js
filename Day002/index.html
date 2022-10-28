@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="blog-post-demo">
+    <div v-bind:style="{fontSize: postFontSize +'em'}">
+        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"
+                   @enlarge-text="onEnlargeText"
+        ></blog-post>
+    </div>
+</div>
+<!--<div id="test">-->
+<!--    <custom-input v-model="searchText"></custom-input>-->
+<!--</div>-->
+<!--<alert-box>-->
+<!--    Something is wrong-->
+<!--</alert-box>-->
+<div id="is-property">
+    <component v-bind:is="currentTabComponent"></component>
+</div>
+<div id="test-parse-dom">
+    <table>
+        <tr is="blog-post-row"></tr>
+    </table>
+</div>
+<component-a></component-a>
+<div id="root">
+    <component-a></component-a>
+</div>
+<div id="root2">
+    <component-a2></component-a2>
+</div>
+<div id="is-property-bind">
+    <button v-for="tab in tabs" v-bind:key="tab.key" @click="currentTabKey=tab.key">{{tab.label}}</button>
+    <component v-bind:is="currentTabComponent"></component>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="component.js"></script>
+</html>
